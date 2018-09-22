@@ -17,6 +17,6 @@ public class CurrencyConversionService {
     public CurrencyConvertionBean conversionServiceFiegn(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
         CurrencyConvertionBean response = currencyExchangeProxy.retrieveExchangeValue(from, to);
         return new CurrencyConvertionBean(from,to,response.getQuantity(), response.getConversionMultiple(),
-                quantity.multiply(response.getConversionMultiple()), "0");
+                quantity.multiply(response.getConversionMultiple()), response.getPort());
     }
 }
